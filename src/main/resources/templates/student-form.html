@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta th:name="csrf-token" th:content="${_csrf.token}">
+    <title>Add Student</title>
+</head>
+<body>
+<form method="post" action="/logout">
+    <button type="submit">Logout</button>
+</form>
+<br>
+<p><label th:text="${welcomeMsg}"></label></p>
+<h1 th:text="${student.id == null ? 'Add Student' : 'Edit Student'}"></h1>
+<form th:action="@{${student.id == null ? '/students/add' : '/students/edit'}}" th:object="${student}" method="post">
+	<label th:unless="${student.id == null}" for="id">ID:</label>
+	   <input th:unless="${student.id == null}" type="text" id="id" name="id" th:value="*{id}" th:readonly="true" required>
+	   <br>
+	<label for="email">Email:</label>
+    <input type="text" id="email" name="email" th:value="*{email}" required minlength="6" maxlength="20" 
+			              pattern="^[^\s]*$" title="email cannot contain spaces" >
+    <br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="*{name}" required minlength="6" maxlength="20" >
+    <br>
+	<label for="rollNo">Roll No:</label>
+	<input type="number" id="rollNo" name="rollNo" th:value="*{rollNo}" required minlength="1" maxlength="10" 
+			              pattern="^[^\s]*$" title="roll no cannot contain spaces" >
+	<br>
+	<label for="division">Division:</label>
+	<input type="text" id="division" name="division" th:value="*{division}" required minlength="1" maxlength="10" 
+			              pattern="^[^\s]*$" title="division cannot contain spaces" >
+	<br>
+    <button type="submit">Save</button>
+</form>
+<br>
+<a href="/students/all">Back to Student Listing</a>
+</body>
+</html>

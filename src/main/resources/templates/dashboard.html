@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+	<meta th:name="csrf-token" th:content="${_csrf.token}">
     <title>Dashboard</title>
 </head>
 <body>
     <h2>Dashboard</h2>
-    <p>Welcome to the dashboard!</p>
-	<nav>
+    <p><label th:text="${welcomeMsg}"></label></p>
+		<nav>
 	        <ul>
-	            <li><a href="/Student">Student</a></li>
-	            <li><a href="/Subject">Subject</a></li>
-	            <li><a href="/Teacher">Teacher</a></li>
+	            <li><a href="/students/all">Student</a></li>
+	            <li><a href="/subjects/all">Subject</a></li>
+	            <li><a href="/teachers/all">Teacher</a></li>
 	        </ul>
 	    </nav>
+		<form method="post" action="/logout">
+		    <button type="submit">Logout</button>
+		</form>
 </body>
 </html>

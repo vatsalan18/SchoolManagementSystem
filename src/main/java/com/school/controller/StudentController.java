@@ -1,7 +1,5 @@
 package com.school.controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -17,29 +15,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.school.DTO.SubjectDTO;
-import com.school.serviceInterface.SubjectServiceInterface;
-
-import jakarta.servlet.http.HttpSession;
+import com.school.DTO.StudentDTO;
+import com.school.serviceInterface.StudentServiceInterface;
 
 @Controller
-@RequestMapping("/subjects")
-public class SubjectController {
+@RequestMapping("/students")
+public class StudentController {
 
     @Autowired
-    private SubjectServiceInterface subjectServiceInterface;
+    private StudentServiceInterface studentServiceInterface;
 
     @GetMapping("/all")
-    public String getAllsubjects(Model model, HttpSession session) throws Exception {
+    public String getAllStudents(Model model) throws Exception {
         try{
         	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
     		model.addAttribute("welcomeMsg", welcomeMsg);
-        	List<SubjectDTO> subjectDTOs = subjectServiceInterface.getAllSubjectData();
-        	model.addAttribute("subjects",subjectDTOs);
-            return "subject-list";
+            model.addAttribute("students", studentServiceInterface.getAllStudentData());
+            return "student-list";
         } catch (Exception e) {
-        	e.printStackTrace();
             throw new Exception("Error!");
         }
 
@@ -51,42 +45,40 @@ public class SubjectController {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
 		model.addAttribute("welcomeMsg", welcomeMsg);
-        model.addAttribute("subject", new SubjectDTO());
-        return "subject-form";
+        model.addAttribute("student", new StudentDTO());
+        return "student-form";
     }
 
     @PreAuthorize("hasRole('admin')")
-    @PostMapping("/add")
-    public String createsubject(@ModelAttribute SubjectDTO subjectDetails) throws Exception {
+    @PostMapping("/add")    
+    public String createStudent(@ModelAttribute StudentDTO studentDetails) throws Exception {
         try{
-            subjectServiceInterface.save(subjectDetails);
-            return "redirect:/subjects/all";
+            studentServiceInterface.save(studentDetails);
+            return "redirect:/students/all";
         } catch (Exception e) {
-        	e.printStackTrace();
             throw new Exception("Error!");
         }
 
     }
-    
+
     @PreAuthorize("hasRole('admin')")
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) throws Exception {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
 		model.addAttribute("welcomeMsg", welcomeMsg);
-        SubjectDTO subjectDTO = subjectServiceInterface.findById(id);
-        model.addAttribute("subject", subjectDTO);
-        return "subject-form";
+        StudentDTO studentDTO = studentServiceInterface.findById(id);
+        model.addAttribute("student", studentDTO);
+        return "student-form";
     }
-
+    
     @PreAuthorize("hasRole('admin')")
     @PostMapping("/edit")
-    public String updatesubject(@ModelAttribute SubjectDTO subjectDetails) throws Exception{
+    public String updateStudent(@ModelAttribute StudentDTO studentDetails) throws Exception{
         try{
-            subjectServiceInterface.updateDetails(subjectDetails);
-            return "redirect:/subjects/all";
+            studentServiceInterface.updateDetails(studentDetails);
+            return "redirect:/students/all";
         } catch (Exception e) {
-        	e.printStackTrace();
             throw new Exception("Error!");
         }
     }
@@ -94,13 +86,12 @@ public class SubjectController {
     @PreAuthorize("hasRole('admin')")
     @DeleteMapping("/delete/{id}")
     @ResponseBody
-    public ResponseEntity<String> deletesubject(@PathVariable Long id) throws Exception {
+    public ResponseEntity<String> deleteStudent(@PathVariable Long id) throws Exception {
         try{
-        	System.out.println("inside delete");
-           subjectServiceInterface.delete(id);
-           return ResponseEntity.ok("Subject deleted successfully!");
+        	System.out.println("inside delete student");
+           studentServiceInterface.delete(id);
+           return ResponseEntity.ok("Student record deleted successfully!");
         } catch (Exception e) {
-        	e.printStackTrace();
             throw new Exception("Error!");
         }
     }

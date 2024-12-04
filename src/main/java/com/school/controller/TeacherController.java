@@ -17,27 +17,25 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.school.DTO.SubjectDTO;
-import com.school.serviceInterface.SubjectServiceInterface;
-
-import jakarta.servlet.http.HttpSession;
+import com.school.DTO.TeacherDTO;
+import com.school.serviceInterface.TeacherServiceInterface;
 
 @Controller
-@RequestMapping("/subjects")
-public class SubjectController {
+@RequestMapping("/teachers")
+public class TeacherController {
 
     @Autowired
-    private SubjectServiceInterface subjectServiceInterface;
+    private TeacherServiceInterface teacherServiceInterface;
 
     @GetMapping("/all")
-    public String getAllsubjects(Model model, HttpSession session) throws Exception {
+    public String getAllteachers(Model model) throws Exception {
         try{
         	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
     		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
     		model.addAttribute("welcomeMsg", welcomeMsg);
-        	List<SubjectDTO> subjectDTOs = subjectServiceInterface.getAllSubjectData();
-        	model.addAttribute("subjects",subjectDTOs);
-            return "subject-list";
+        	List<TeacherDTO> teachers = teacherServiceInterface.getAllTeacherData();
+        	model.addAttribute("teachers",teachers);
+            return "teacher-list";
         } catch (Exception e) {
         	e.printStackTrace();
             throw new Exception("Error!");
@@ -51,16 +49,16 @@ public class SubjectController {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
 		model.addAttribute("welcomeMsg", welcomeMsg);
-        model.addAttribute("subject", new SubjectDTO());
-        return "subject-form";
+        model.addAttribute("teacher", new TeacherDTO());
+        return "teacher-form";
     }
 
     @PreAuthorize("hasRole('admin')")
     @PostMapping("/add")
-    public String createsubject(@ModelAttribute SubjectDTO subjectDetails) throws Exception {
+    public String createteacher(@ModelAttribute TeacherDTO teacher) throws Exception {
         try{
-            subjectServiceInterface.save(subjectDetails);
-            return "redirect:/subjects/all";
+            teacherServiceInterface.save(teacher);
+            return "redirect:/teachers/all";
         } catch (Exception e) {
         	e.printStackTrace();
             throw new Exception("Error!");
@@ -74,17 +72,17 @@ public class SubjectController {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
 		model.addAttribute("welcomeMsg", welcomeMsg);
-        SubjectDTO subjectDTO = subjectServiceInterface.findById(id);
-        model.addAttribute("subject", subjectDTO);
-        return "subject-form";
+        TeacherDTO teacher = teacherServiceInterface.findById(id);
+        model.addAttribute("teacher", teacher);
+        return "teacher-form";
     }
 
     @PreAuthorize("hasRole('admin')")
     @PostMapping("/edit")
-    public String updatesubject(@ModelAttribute SubjectDTO subjectDetails) throws Exception{
+    public String updateteacher(@ModelAttribute TeacherDTO teacher) throws Exception{
         try{
-            subjectServiceInterface.updateDetails(subjectDetails);
-            return "redirect:/subjects/all";
+            teacherServiceInterface.updateDetails(teacher);
+            return "redirect:/teachers/all";
         } catch (Exception e) {
         	e.printStackTrace();
             throw new Exception("Error!");
@@ -94,11 +92,10 @@ public class SubjectController {
     @PreAuthorize("hasRole('admin')")
     @DeleteMapping("/delete/{id}")
     @ResponseBody
-    public ResponseEntity<String> deletesubject(@PathVariable Long id) throws Exception {
+    public ResponseEntity<String> deleteteacher(@PathVariable Long id) throws Exception {
         try{
-        	System.out.println("inside delete");
-           subjectServiceInterface.delete(id);
-           return ResponseEntity.ok("Subject deleted successfully!");
+           teacherServiceInterface.delete(id);
+           return ResponseEntity.ok("Teacher record deleted successfully!");
         } catch (Exception e) {
         	e.printStackTrace();
             throw new Exception("Error!");

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta th:name="csrf-token" th:content="${_csrf.token}">
+    <title>Add Subject</title>
+</head>
+<body>
+<h1 th:text="${subject.id == null ? 'Add Subject' : 'Edit Subject'}"></h1>
+<form method="post" action="/logout">
+    <button type="submit">Logout</button>
+</form>
+<br>
+<p><label th:text="${welcomeMsg}"></label></p>
+<form th:action="@{${subject.id == null ? '/subjects/add' : '/subjects/edit'}}" th:object="${subject}" method="post">
+	<label th:unless="${subject.id == null}" for="id">ID:</label>
+	   <input th:unless="${subject.id == null}" type="text" id="id" name="id" th:value="*{id}" th:readonly="true" required>
+	   <br>
+	<label for="code">Code:</label>
+    <input type="text" id="code" name="code" th:value="*{code}" required minlength="1" maxlength="10" 
+			              pattern="^[^\s]*$" title="code cannot contain spaces" >
+    <br>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" th:value="*{name}" required minlength="2" maxlength="20" >
+    <br>
+    <button type="submit">Save</button>
+</form>
+<br>
+<a href="/subjects/all">Back to Subject Listing</a>
+</body>
+</html>

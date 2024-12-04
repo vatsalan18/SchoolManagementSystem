@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+	<meta th:name="csrf-token" th:content="${_csrf.token}">
     <title>Two-Factor Authentication</title>
 </head>
 <body>
     <h2>Two-Factor Authentication</h2>
+	<p><label th:text="${welcomeMsg}"></label></p>
     <form th:action="@{/auth/verify}" method="post">
-        <input type="text" name="code" placeholder="Enter code" required>
+		<h2>Please enter two factor verification code:</h2>
+        <input type="text" name="code" placeholder="Enter code" required minlength="6" maxlength="6" 
+				              pattern="^[^\s]*$" title="code cannot contain spaces" >
         <button type="submit">Verify</button>
     </form>
+	<p th:if="${error}" th:text="${error}"></p>
 </body>
 </html>

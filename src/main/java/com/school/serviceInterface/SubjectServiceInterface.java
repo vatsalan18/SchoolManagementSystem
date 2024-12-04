@@ -12,4 +12,6 @@ public interface SubjectServiceInterface {
     void delete(Long id) throws Exception;
 
     List<SubjectDTO> getAllSubjectData() throws Exception;
+
+	SubjectDTO findById(Long id) throws Exception;
 }

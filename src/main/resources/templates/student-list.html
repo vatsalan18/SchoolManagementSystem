@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta th:name="csrf-token" th:content="${_csrf.token}">
+    <title>Student List</title>
+	<script>
+	        function deleteStudent(id,event) {
+				var csrfToken = document. querySelector('meta[name="csrf-token"]').content;
+				event.preventDefault(); 
+	            if (confirm("Are you sure you want to delete this student?")) {
+	                fetch(`/students/delete/${id}`, {
+	                    method: 'DELETE',
+						headers: {
+							 'X-XSRF-TOKEN': csrfToken  // Add the CSRF token to the header
+						},
+						credentials: "include" 
+	                })
+	                .then(response => {
+	                    if (response.ok) {
+	                        alert('Student deleted successfully!');
+	                        location.reload();
+	                    } else {
+	                        alert('Failed to delete student!');
+	                    }
+	                });
+	            }
+	        }
+
+	</script>
+</head>
+<body>
+	<form method="post" action="/logout">
+	    <button type="submit">Logout</button>
+	</form>
+	<br>
+<h1>Student List</h1>
+<p><label th:text="${welcomeMsg}"></label></p>
+<a href="/students/add" sec:authorize="hasRole('admin')">Add New Student</a>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Roll No</th>
+        <th>Name</th>
+		<th>Email</th>
+		<th>Division</th>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td th:text="${student.id}"></td>
+        <td th:text="${student.rollNo}"></td>
+        <td th:text="${student.name}"></td>
+		<td th:text="${student.email}"></td>
+		<td th:text="${student.division}"></td>
+        <td sec:authorize="hasRole('admin')">
+            <a th:href="@{/students/edit/{id}(id=${student.id})}" sec:authorize="hasRole('admin')">Edit</a>
+			<a href="#" th:onclick="|deleteStudent(${student.id}, event)|" sec:authorize="hasRole('admin')">Delete</a>
+        </td>
+    </tr>
+</table>
+<br>
+<a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
