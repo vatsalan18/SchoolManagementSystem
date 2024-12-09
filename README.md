@@ -12,9 +12,15 @@ Viewers can only view the information
 
 3. CSRF tokenization
 
-4. Session management : The user will be logged out in some minutes of inactivity
+4.The user will be logged out in some minutes of inactivity
 
-5. Session Management: Ensures a single active session per user.
+5. Ensures a single active session per user.
+
+6. Input field Validation
+
+7. Parameterized query to avoid SQL injection
+
+8. Session management
 
 **Technology Stack** : 
 1. Backend - Java V 23, Spring Boot Framework V 3.3.5 
