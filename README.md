@@ -1,5 +1,6 @@
 # SchoolManagementSystem
-**Overview** : The SchoolManagementSystem is designed using Spring Boot framework, to manage the subject, teacher and students related institutional information. The application implements role-based (admin & viewer) access to the appliction for performing CRUD operations against entities like subject, teacher and students. It implements major security measures at various levels.
+**Overview** : 
+The SchoolManagementSystem is designed using Spring Boot framework, to manage the subject, teacher and students related institutional information. The application implements role-based (admin & viewer) access to the appliction for performing CRUD operations against entities like subject, teacher and students. It implements major security measures at various levels.
 
 **Features** : 
 1. Authentication Two-Factor Authentication
@@ -16,11 +17,11 @@ Viewers can only view the information
 5. Session Management: Ensures a single active session per user.
 
 **Technology Stack** : 
-===========Backend - Java V 23, Spring Boot Framework V 3.3.5 ========
-===========Frontend - Thymeleaf templates, HTML, CSS ===========
-===========Database - MySql V 8.0.33 ===========
-===========Security - Spring Security ===========
-===========Build Tool - Maven ===========
+1. Backend - Java V 23, Spring Boot Framework V 3.3.5 
+2. Frontend - Thymeleaf templates, HTML, CSS 
+3. Database - MySql V 8.0.33
+4. Security - Spring Security
+5. Build Tool - Maven 
 
 **Setup and Installation** : 
 1. Clone the repository
