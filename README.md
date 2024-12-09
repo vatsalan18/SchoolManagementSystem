@@ -16,11 +16,11 @@ Viewers can only view the information
 5. Session Management: Ensures a single active session per user.
 
 **Technology Stack** : 
-Backend - Java V 23, Spring Boot Framework V 3.3.5
-Frontend - Thymeleaf templates, HTML, CSS
-Database - MySql V 8.0.33
-Security - Spring Security
-Build Tool - Maven
+===========Backend - Java V 23, Spring Boot Framework V 3.3.5 ========
+===========Frontend - Thymeleaf templates, HTML, CSS ===========
+===========Database - MySql V 8.0.33 ===========
+===========Security - Spring Security ===========
+===========Build Tool - Maven ===========
 
 **Setup and Installation** : 
 1. Clone the repository
