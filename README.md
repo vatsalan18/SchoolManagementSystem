@@ -12,7 +12,7 @@ Viewers can only view the information
 
 3. CSRF tokenization
 
-4.The user will be logged out in some minutes of inactivity
+4. The user will be logged out in some minutes of inactivity
 
 5. Ensures a single active session per user.
 
