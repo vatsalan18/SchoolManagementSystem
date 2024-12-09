@@ -31,7 +31,7 @@ public class TeacherController {
     public String getAllteachers(Model model) throws Exception {
         try{
         	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
+        	StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName()).append(authentication.getAuthorities());
     		model.addAttribute("welcomeMsg", welcomeMsg);
         	List<TeacherDTO> teachers = teacherServiceInterface.getAllTeacherData();
         	model.addAttribute("teachers",teachers);
@@ -47,7 +47,7 @@ public class TeacherController {
     @GetMapping("/add")
     public String showAddForm(Model model) {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
+    	StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName()).append(authentication.getAuthorities());
 		model.addAttribute("welcomeMsg", welcomeMsg);
         model.addAttribute("teacher", new TeacherDTO());
         return "teacher-form";
@@ -70,7 +70,7 @@ public class TeacherController {
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) throws Exception {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
+    	StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName()).append(authentication.getAuthorities());
 		model.addAttribute("welcomeMsg", welcomeMsg);
         TeacherDTO teacher = teacherServiceInterface.findById(id);
         model.addAttribute("teacher", teacher);

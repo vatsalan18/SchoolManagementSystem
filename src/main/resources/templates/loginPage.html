@@ -10,9 +10,9 @@
         <h2>Login</h2>
         <form th:action="@{/auth/login}" method="post">
             <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
-            <input type="text" name="username" placeholder="Username" minlength="5" maxlength="20"
+            <input type="text" name="username" placeholder="Username" minlength="6" maxlength="30"
                    pattern="^[^\s]*$" title="Username cannot contain spaces" aria-label="Username" required>
-            <input type="password" name="password" placeholder="Password" minlength="5" maxlength="20"
+            <input type="password" name="password" placeholder="Password" minlength="6" maxlength="20"
                    pattern="^[^\s]*$" title="Password cannot contain spaces" aria-label="Password" required>
             <button type="submit" aria-label="Login">Login</button>
         </form>

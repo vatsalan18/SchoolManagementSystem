@@ -33,7 +33,7 @@ public class SubjectController {
     public String getAllsubjects(Model model, HttpSession session) throws Exception {
         try{
         	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-    		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
+        	StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName()).append(authentication.getAuthorities());
     		model.addAttribute("welcomeMsg", welcomeMsg);
         	List<SubjectDTO> subjectDTOs = subjectServiceInterface.getAllSubjectData();
         	model.addAttribute("subjects",subjectDTOs);
@@ -49,7 +49,7 @@ public class SubjectController {
     @GetMapping("/add")
     public String showAddForm(Model model) {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
+    	StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName()).append(authentication.getAuthorities());
 		model.addAttribute("welcomeMsg", welcomeMsg);
         model.addAttribute("subject", new SubjectDTO());
         return "subject-form";
@@ -72,7 +72,7 @@ public class SubjectController {
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model) throws Exception {
     	Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
+    	StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName()).append(authentication.getAuthorities());
 		model.addAttribute("welcomeMsg", welcomeMsg);
         SubjectDTO subjectDTO = subjectServiceInterface.findById(id);
         model.addAttribute("subject", subjectDTO);

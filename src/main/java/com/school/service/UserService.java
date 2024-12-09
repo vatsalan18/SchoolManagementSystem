@@ -57,13 +57,18 @@ public class UserService implements UserServiceInterface {
 		}
 		userAuthRepository.save(userAuthCode);
 		
-		StringBuilder msg = new StringBuilder("Your 2FA Code")
-				.append("Your 2FA code is: ").append(twoFactorCode);
+		StringBuilder msg = new StringBuilder("Your 2FA Code is ")
+				.append(twoFactorCode);
 		System.out.println("msg****"+msg.toString());
 		String subject = "School managment app OTP for login";
 		
 		// Send the 2FA code via email
-		//emailServiceInterface.sendEmail(user.getUsername(), subject,msg.toString(), null);
+		try {
+			emailServiceInterface.sendEmail(username, subject,msg.toString(), null);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
     // Method to generate a random 6-digit 2FA code

@@ -53,7 +53,7 @@ public class AuthController {
 	@GetMapping("/two-factor")
 	public String showTwoFactorPage(Model model,HttpSession session) {
 		Authentication authentication = (Authentication) session.getAttribute("authentication");
-		StringBuilder welcomeMsg = new StringBuilder("Wecome ").append(authentication.getName());
+		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName()).append(authentication.getAuthorities());
 		model.addAttribute("welcomeMsg", welcomeMsg);
 		return "two-factor";
 	}
@@ -83,7 +83,7 @@ public class AuthController {
 	@GetMapping("/dashboard")
 	public String showDashboard(Model model) {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName());
+		StringBuilder welcomeMsg = new StringBuilder("Welcome ").append(authentication.getName()).append(authentication.getAuthorities());
 		model.addAttribute("welcomeMsg", welcomeMsg);
 		return "dashboard";
 	}
