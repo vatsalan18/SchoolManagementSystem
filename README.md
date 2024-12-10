@@ -5,24 +5,18 @@ The SchoolManagementSystem is designed using Spring Boot framework, to manage th
 **Features & Security Objectives** : 
 1. Authentication Two-Factor Authentication
 An extra layer of authentication for secure login.
-
 2. Role based - Authorization
 Admin users can manage students, teachers, and subjects.
 Viewers can only view the information
-
 3. CSRF tokenization
-
 4. The user will be logged out in some minutes of inactivity
-
 5. Ensures a single active session per user.
-
 6. Input field Validation
-
 7. Parameterized query to avoid SQL injection
-
 8. Session management
 
 **Project Structure** 
+
 school (Project Root Directory)
 ├── src
 │   ├── main
