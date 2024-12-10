@@ -80,3 +80,10 @@ SAST tool Sonarcube was used to perform testing along with manual security check
 A basic school managment system is built to perform CRUD operations safely using secure framework provided by Spring boot.
 
 **References**
+[1]baeldung, “Learn Spring Boot | Baeldung,” www.baeldung.com, Jun. 12, 2018. https://www.baeldung.com/spring-boot (accessed Nov. 12, 2024).
+[2]Raja Anbazhagan, “Spring Security | SpringHow,” SpringHow, Dec. 14, 2020. https://springhow.com/spring-security/ (accessed Nov. 15, 2024).
+[3]M. Repo, “Maven Repository: Search/Browse/Explore,” mvnrepository.com. https://mvnrepository.com/ (accessed Nov. 15, 2024).
+[4]Spring, “Spring Projects,” Spring.io, 2019. https://spring.io/projects/spring-boot (accessed Nov. 27, 2024).
+[5]“Getting Started | Securing a Web Application,” Getting Started | Securing a Web Application. https://spring.io/guides/gs/securing-web (accessed Dec. 01, 2024).
+[6]“Tutorial: Using Thymeleaf,” www.thymeleaf.org. https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html (accessed Dec. 01, 2024).
+[7]GeeksforGeeks, “JPA CRUD,” GeeksforGeeks, Apr. 02, 2024. https://www.geeksforgeeks.org/jpa-crud/ (accessed Dec. 05, 2024).
