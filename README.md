@@ -1,8 +1,8 @@
 # SchoolManagementSystem
-###**Overview** : 
+**Overview** : 
 The SchoolManagementSystem is designed using Spring Boot framework, to manage the subject, teacher and students related institutional information. The application implements role-based (admin & viewer) access to the appliction for performing CRUD operations against entities like subject, teacher and students. It implements major security measures at various levels.
 
-###**Features & Security Objectives** : 
+**Features & Security Objectives** : 
 1. Authentication Two-Factor Authentication
 An extra layer of authentication for secure login.
 2. Role based - Authorization
@@ -15,7 +15,7 @@ Viewers can only view the information
 7. Parameterized query to avoid SQL injection
 8. Session management
 
-###**Project Structure** 
+**Project Structure** 
 
 school (Project Root Directory)
 ├── src
@@ -53,7 +53,7 @@ school (Project Root Directory)
 ├── README.md
 └── target
 
-### Folder and File Descriptions
+**Folder and File Descriptions**
 - **configuration**: Contains configuration classes like `SecurityConfig` to manage application-level security.
 - **controller**: Contains controller classes for handling user interactions (e.g., `AuthController` for login/authentication).
 - **entity**: Contains entity classes for mapping database tables to Java objects.
