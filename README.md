@@ -53,6 +53,15 @@ school (Project Root Directory)
 ├── README.md
 └── target
 
+### Folder and File Descriptions
+- **configuration**: Contains configuration classes like `SecurityConfig` to manage application-level security.
+- **controller**: Contains controller classes for handling user interactions (e.g., `AuthController` for login/authentication).
+- **entity**: Contains entity classes for mapping database tables to Java objects.
+- **repository**: JPA repository interfaces for database operations.
+- **service**: Service layer classes containing business logic.
+- **resources/templates**: HTML templates for the frontend (e.g., `dashboard.html` for the user dashboard).
+
+
 **Technology Stack** : 
 1. Backend - Java V 23, Spring Boot Framework V 3.3.5 
 2. Frontend - Thymeleaf templates, HTML, CSS 
