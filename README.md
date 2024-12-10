@@ -53,6 +53,9 @@ school (Project Root Directory)
 ├── README.md
 └── target
 
+![image](https://github.com/user-attachments/assets/853542d8-8c6c-47dc-8968-ebb6c10ae0b3)
+
+
 **Folder and File Descriptions**
 - **configuration**: Contains configuration classes like `SecurityConfig` to manage application-level security.
 - **controller**: Contains controller classes for handling user interactions (e.g., `AuthController` for login/authentication).
