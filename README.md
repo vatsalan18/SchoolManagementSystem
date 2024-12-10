@@ -74,7 +74,7 @@ mvn spring-boot:run
 The key security implementations done for the project is at every basic stage of the application with a view to protect the sensitive data of the users. The include authentication using MFA, authrorization using role based accessibilty, active session and cookied managment, no parallel logins, CSRF token, parametirzed queries to avoid SQL injection attacks, session logout incase of user inactivity and user input validation.
 
 **Testing Process**
-SAST tool Sonarcube was used to perform testing along with manual security checks of the features implemented.
+SAST tool Sonarqube was used to perform testing along with manual security checks of the features implemented.
 
 **Contributions**
 A basic school managment system is built to perform CRUD operations safely using secure framework provided by Spring boot.
