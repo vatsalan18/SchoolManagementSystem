@@ -17,42 +17,6 @@ Viewers can only view the information
 
 **Project Structure** 
 
-school (Project Root Directory)
-├── src
-│   ├── main
-│   │   ├── java
-│   │   │   └── com.school
-│   │   │       ├── configuration
-│   │   │       │   └── (Configuration classes, e.g., SecurityConfig)
-│   │   │       ├── controller
-│   │   │       │   └── (Controller classes, e.g., AuthController, StudentController, SubjectController, TeacherController)
-│   │   │       ├── DTO
-│   │   │       │   └── (Data Transfer Object classes, e.g., StudentDTO, TeacherDTO, SubjectDTO, UserDTO)
-│   │   │       ├── entity
-│   │   │       │   └── (Entity classes for database mapping, e.g., Student, Subject, Teacher, User, UserAuth)
-│   │   │       ├── repository
-│   │   │       │   └── (JPA Repository interfaces, e.g., StudentRepository, SubjectRepository, TeacherRepository, UserRepository, UserAuthRepository)
-│   │   │       ├── service
-│   │   │       │   └── (Service implementation classes, e.g., StudentService, etc)
-│   │   │       └── serviceInterface
-│   │   │           └── (Service interface classes, e.g., StudentServiceInterface, etc.)
-│   │   ├── resources
-│   │   │   ├── templates
-│   │   │   │   ├── dashboard.html
-│   │   │   │   ├── loginPage.html
-│   │   │   │   ├── student-form.html
-│   │   │   │   ├── student-list.html
-│   │   │   │   ├── subject-form.html
-│   │   │   │   ├── teacher-form.html
-│   │   │   │   ├── teacher-list.html
-│   │   │   │   └── two-factor.html
-│   │   │   └── application.properties
-├── JRE System Library [JavaSE-23]
-├── Maven Dependencies
-├── pom.xml
-├── README.md
-└── target
-
 ![image](https://github.com/user-attachments/assets/853542d8-8c6c-47dc-8968-ebb6c10ae0b3)
 
 
