@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 import com.school.entity.User;
 import com.school.repository.UserRepository;
-
 /*
+ * 
  * @Component public class Dataloader implements CommandLineRunner {
  * 
  * @Autowired private UserRepository userRepository;

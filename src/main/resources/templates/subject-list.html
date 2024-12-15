@@ -29,30 +29,37 @@
 	</script>
 </head>
 <body>
-<h1>Subject List</h1>
-<p><label th:text="${welcomeMsg}"></label></p>
-<form method="post" action="/logout">
-    <button type="submit">Logout</button>
-</form>
-<br>
-<a href="/subjects/add" sec:authorize="hasRole('admin')">Add New Subject</a>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Code</th>
-        <th>Name</th>
-    </tr>
-    <tr th:each="subject : ${subjects}">
-        <td th:text="${subject.id}"></td>
-        <td th:text="${subject.code}"></td>
-        <td th:text="${subject.name}"></td>
-        <td sec:authorize="hasRole('admin')">
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <p style="margin: 0; font-size: 16px; color: #333; font-weight: bold;"><label th:text="${welcomeMsg}"></label></p>
+    <form method="post" action="/logout">
+        <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 10px 15px; border-radius: 5px; font-size: 14px; cursor: pointer;">
+            Logout
+        </button>
+    </form>
+</div>
+<h1 style="text-align: center; color: #333; margin-bottom: 20px;">Subject List</h1>
+<a href="/subjects/add" sec:authorize="hasRole('admin')" style="display: inline-block; padding: 10px 15px; background-color: #28a745; color: white; border-radius: 5px; font-weight: bold;">+ Add New Subject</a>
+<br><br>
+<table border="1" style="width: 80%; border-collapse: collapse; text-align: center; margin: auto;">
+   <thead>
+     <tr style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+        <th style="padding: 8px;">ID</th>
+        <th style="padding: 8px;">Code</th>
+        <th style="padding: 8px;">Name</th>
+        <th style="padding: 8px;" sec:authorize="hasRole('admin')">Actions</th>
+     </tr>
+   </thead>
+    <tr th:each="subject : ${subjects}" style="border-bottom: 1px solid #ddd;">
+        <td style="padding: 8px;" th:text="${subject.id}"></td>
+        <td style="padding: 8px;" th:text="${subject.code}"></td>
+        <td style="padding: 8px;" th:text="${subject.name}"></td>
+        <td style="padding: 8px;" sec:authorize="hasRole('admin')">
             <a th:href="@{/subjects/edit/{id}(id=${subject.id})}" sec:authorize="hasRole('admin')">Edit</a>
 			<a href="#" th:onclick="|deleteSubject(${subject.id}, event)|" sec:authorize="hasRole('admin')">Delete</a>
         </td>
     </tr>
 </table>
 <br>
-<a href="/dashboard">Back to Dashboard</a>
+<a href="/dashboard" style="text-decoration: none; color: #007BFF; font-weight: bold;">&larr; Back to Dashboard</a>
 </body>
 </html>

@@ -5,20 +5,20 @@
     <title>Add Student</title>
 </head>
 <body>
-<form method="post" action="/logout">
- <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 10px 15px; border-radius: 5px; font-size: 14px; cursor: pointer;">
+<div style="display: flex; justify-content: space-between; align-items: center;">
+    <p style="margin: 0; font-size: 16px; color: #333; font-weight: bold;"><label th:text="${welcomeMsg}"></label></p>
+    <form method="post" action="/logout">
+        <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 10px 15px; border-radius: 5px; font-size: 14px; cursor: pointer;">
             Logout
-        </button> 
-</form>
-<br>
-<p><label th:text="${welcomeMsg}"></label></p>
-<h2 style="text-align: center; color: #333; margin-bottom: 20px;">Add Student</h2>
-<h1 th:text="${student.id == null ? 'Add Student' : 'Edit Student'}"></h1>
+        </button>
+    </form>
+</div>
+<h1 style="text-align: center; color: #333; margin-bottom: 20px;" th:text="${student.id == null ? 'Add Student' : 'Edit Student'}"></h1>
 <form th:action="@{${student.id == null ? '/students/add' : '/students/edit'}}" th:object="${student}" method="post"  style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; max-width: 400px; margin: auto; font-family: Arial, sans-serif;">
     <div style="display: flex; flex-direction: column; gap: 15px;">
         <div style="display: flex; justify-content: space-between; align-items: center;">
             <label th:unless="${student.id == null}" for="id" style="flex: 1;">ID:</label>
-            <input th:unless="${student.id == null}" type="text" id="id" name="id" th:value="*{id}" th:readonly="true" required style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+            <input th:unless="${student.id == null}" type="text" id="id" name="id" th:value="*{id}" th:readonly="true" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center;">
