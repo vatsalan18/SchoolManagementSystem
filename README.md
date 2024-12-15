@@ -88,3 +88,6 @@ A basic school managment system is built to perform CRUD operations safely using
 [5]“Getting Started | Securing a Web Application,” Getting Started | Securing a Web Application. https://spring.io/guides/gs/securing-web (accessed Dec. 01, 2024).
 [6]“Tutorial: Using Thymeleaf,” www.thymeleaf.org. https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html (accessed Dec. 01, 2024).
 [7]GeeksforGeeks, “JPA CRUD,” GeeksforGeeks, Apr. 02, 2024. https://www.geeksforgeeks.org/jpa-crud/ (accessed Dec. 05, 2024).
+[8]OWASP, “OWASP Top Ten,” Owasp.org, 2024. https://owasp.org/www-project-top-ten/ 
+[9]“Redirecting,” Ncirl.ie, 2024.                  https://moodle2024.ncirl.ie/pluginfile.php/70044/mod_resource/content/0/Week%2012%20Lect%20-%20Security%20Testing%20%28P2%29.pdf (accessed Dec. 12, 2024). 
+[10]OWASP, “Free for Open Source Application Security Tools | OWASP,” owasp.org. https://owasp.org/www-community/Free_for_Open_Source_Application_Security_Tools
