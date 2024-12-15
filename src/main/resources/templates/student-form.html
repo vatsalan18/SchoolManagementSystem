@@ -6,33 +6,50 @@
 </head>
 <body>
 <form method="post" action="/logout">
-    <button type="submit">Logout</button>
+ <button type="submit" style="background-color: #ff4d4d; color: white; border: none; padding: 10px 15px; border-radius: 5px; font-size: 14px; cursor: pointer;">
+            Logout
+        </button> 
 </form>
 <br>
 <p><label th:text="${welcomeMsg}"></label></p>
+<h2 style="text-align: center; color: #333; margin-bottom: 20px;">Add Student</h2>
 <h1 th:text="${student.id == null ? 'Add Student' : 'Edit Student'}"></h1>
-<form th:action="@{${student.id == null ? '/students/add' : '/students/edit'}}" th:object="${student}" method="post">
-	<label th:unless="${student.id == null}" for="id">ID:</label>
-	   <input th:unless="${student.id == null}" type="text" id="id" name="id" th:value="*{id}" th:readonly="true" required>
-	   <br>
-	<label for="email">Email:</label>
-    <input type="text" id="email" name="email" th:value="*{email}" required minlength="6" maxlength="20" 
-			              pattern="^[^\s]*$" title="email cannot contain spaces" >
-    <br>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" th:value="*{name}" required minlength="6" maxlength="20" >
-    <br>
-	<label for="rollNo">Roll No:</label>
-	<input type="number" id="rollNo" name="rollNo" th:value="*{rollNo}" required minlength="1" maxlength="10" 
-			              pattern="^[^\s]*$" title="roll no cannot contain spaces" >
-	<br>
-	<label for="division">Division:</label>
-	<input type="text" id="division" name="division" th:value="*{division}" required minlength="1" maxlength="10" 
-			              pattern="^[^\s]*$" title="division cannot contain spaces" >
-	<br>
-    <button type="submit">Save</button>
+<form th:action="@{${student.id == null ? '/students/add' : '/students/edit'}}" th:object="${student}" method="post"  style="background-color: #f9f9f9; padding: 20px; border-radius: 8px; max-width: 400px; margin: auto; font-family: Arial, sans-serif;">
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label th:unless="${student.id == null}" for="id" style="flex: 1;">ID:</label>
+            <input th:unless="${student.id == null}" type="text" id="id" name="id" th:value="*{id}" th:readonly="true" required style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="email" style="flex: 1;">Email:</label>
+            <input type="text" id="email" name="email" th:value="*{email}" required minlength="6" maxlength="20" 
+                   pattern="^[^\s]*$" title="email cannot contain spaces" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="name" style="flex: 1;">Name:</label>
+            <input type="text" id="name" name="name" th:value="*{name}" required minlength="6" maxlength="20" 
+                   style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="rollNo" style="flex: 1;">Roll No:</label>
+            <input type="number" id="rollNo" name="rollNo" th:value="*{rollNo}" required minlength="1" maxlength="10" 
+                   pattern="^[^\s]*$" title="roll no cannot contain spaces" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <label for="division" style="flex: 1;">Division:</label>
+            <input type="text" id="division" name="division" th:value="*{division}" required minlength="1" maxlength="10" 
+                   pattern="^[^\s]*$" title="division cannot contain spaces" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+
+        <button type="submit" style="background-color: #007BFF; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Save</button>
+    </div>
 </form>
-<br>
-<a href="/students/all">Back to Student Listing</a>
+
+<br><br>
+<a href="/students/all" style="text-decoration: none; color: #007BFF; font-weight: bold;">&larr; Back to Student Listing</a>
 </body>
 </html>

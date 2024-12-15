@@ -36,26 +36,37 @@
 <h1>Student List</h1>
 <p><label th:text="${welcomeMsg}"></label></p>
 <a href="/students/add" sec:authorize="hasRole('admin')">Add New Student</a>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Roll No</th>
-        <th>Name</th>
-		<th>Email</th>
-		<th>Division</th>
-    </tr>
-    <tr th:each="student : ${students}">
-        <td th:text="${student.id}"></td>
-        <td th:text="${student.rollNo}"></td>
-        <td th:text="${student.name}"></td>
-		<td th:text="${student.email}"></td>
-		<td th:text="${student.division}"></td>
-        <td sec:authorize="hasRole('admin')">
-            <a th:href="@{/students/edit/{id}(id=${student.id})}" sec:authorize="hasRole('admin')">Edit</a>
-			<a href="#" th:onclick="|deleteStudent(${student.id}, event)|" sec:authorize="hasRole('admin')">Delete</a>
-        </td>
-    </tr>
+<table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+    <thead>
+        <tr style="background-color: #f2f2f2; border-bottom: 2px solid #ddd;">
+            <th style="padding: 8px;">ID</th>
+            <th style="padding: 8px;">Roll No</th>
+            <th style="padding: 8px;">Name</th>
+            <th style="padding: 8px;">Email</th>
+            <th style="padding: 8px;">Division</th>
+            <th style="padding: 8px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="student : ${students}" style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 8px;" th:text="${student.id}"></td>
+            <td style="padding: 8px;" th:text="${student.rollNo}"></td>
+            <td style="padding: 8px;" th:text="${student.name}"></td>
+            <td style="padding: 8px;" th:text="${student.email}"></td>
+            <td style="padding: 8px;" th:text="${student.division}"></td>
+            <td style="padding: 8px;" sec:authorize="hasRole('admin')">
+                <a th:href="@{/students/edit/{id}(id=${student.id})}" 
+                   style="color: #007BFF; text-decoration: none; margin-right: 10px;" 
+                   sec:authorize="hasRole('admin')">Edit</a>
+                <a href="#" 
+                   th:onclick="|deleteStudent(${student.id}, event)|" 
+                   style="color: #FF6347; text-decoration: none;" 
+                   sec:authorize="hasRole('admin')">Delete</a>
+            </td>
+        </tr>
+    </tbody>
 </table>
+
 <br>
 <a href="/dashboard">Back to Dashboard</a>
 </body>

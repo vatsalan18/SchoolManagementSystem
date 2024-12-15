@@ -7,28 +7,26 @@ import org.springframework.stereotype.Component;
 import com.school.entity.User;
 import com.school.repository.UserRepository;
 
-
-@Component
-public class Dataloader implements CommandLineRunner {
-
-    @Autowired
-    private UserRepository userRepository;
-
-    @Override
-    public void run(String... args) throws Exception {
-        // Insert some data manually if it doesn't exist
-		/*
-		 * if (userRepository.count() == 0) { User user1 = new User();
-		 * user1.setUsername("vatsalanarayan02@gmail.com"); user1.setPassword(
-		 * "$2a$10$kYAdTC470hH3o.TZuVeK1OIOf5tzhpYVapRWDM6jAz7UqfL1DnxdK");
-		 * user1.setRole("admin"); userRepository.save(user1);
-		 * 
-		 * User user2 = new User(); user2.setUsername("x23201126@student.ncirl.ie");
-		 * user2.setPassword(
-		 * "$2a$10$kYAdTC470hH3o.TZuVeK1OIOf5tzhpYVapRWDM6jAz7UqfL1DnxdK");
-		 * user2.setRole("view"); userRepository.save(user2);
-		 * 
-		 * }
-		 */
-    }
-}
+/*
+ * @Component public class Dataloader implements CommandLineRunner {
+ * 
+ * @Autowired private UserRepository userRepository;
+ * 
+ * @Override public void run(String... args) throws Exception { // Insert some
+ * data manually if it doesn't exist
+ * 
+ * if (userRepository.count() == 0) { User user1 = new User();
+ * user1.setUsername("vatsalanarayan02@gmail.com"); user1.setPassword(
+ * "$2a$10$kYAdTC470hH3o.TZuVeK1OIOf5tzhpYVapRWDM6jAz7UqfL1DnxdK");
+ * user1.setRole("admin"); userRepository.save(user1);
+ * 
+ * User user2 = new User(); user2.setUsername("vatsalan18@gmail.com");
+ * user2.setPassword(
+ * "$2a$10$kYAdTC470hH3o.TZuVeK1OIOf5tzhpYVapRWDM6jAz7UqfL1DnxdK");
+ * user2.setRole("view"); userRepository.save(user2);
+ * 
+ * }
+ * 
+ * 
+ * } }
+ */

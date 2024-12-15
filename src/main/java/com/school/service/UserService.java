@@ -16,6 +16,8 @@ import com.school.serviceInterface.UserServiceInterface;
 
 @Service
 public class UserService implements UserServiceInterface {
+	
+	private static Random random = new Random();
     @Autowired
     private UserRepository userRepository;
 
@@ -73,7 +75,6 @@ public class UserService implements UserServiceInterface {
 
     // Method to generate a random 6-digit 2FA code
     private String generateTwoFactorCode() {
-        Random random = new Random();
         int code = 100000 + random.nextInt(900000); // Generates a 6-digit code
         return String.valueOf(code);
     }
