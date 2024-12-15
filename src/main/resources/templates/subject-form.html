@@ -23,13 +23,13 @@
 	   
 	<div style="display: flex; justify-content: space-between; align-items: center;">
 	<label for="code" style="flex: 1;">Code:</label>
-    <input type="text" id="code" name="code" th:value="*{code}" required minlength="1" maxlength="10" 
-			              pattern="^[^\s]*$" title="code cannot contain spaces" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+    <input type="text" id="code" name="code" th:value="*{code}" required minlength="1" maxlength="10" pattern="[a-zA-Z0-9 ]*"
+			              title="code cannot contain spaces" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
     </div>
     
     <div style="display: flex; justify-content: space-between; align-items: center;">
     <label for="name" style="flex: 1;">Name:</label>
-    <input type="text" id="name" name="name" th:value="*{name}" required minlength="2" maxlength="20" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+    <input type="text" id="name" name="name" th:value="*{name}" pattern="[a-zA-Z0-9 ]*" required minlength="2" maxlength="20" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
     </div>
     <button type="submit" style="background-color: #007BFF; color: white; padding: 10px; border: none; border-radius: 4px; cursor: pointer;">Save</button>
   </div>

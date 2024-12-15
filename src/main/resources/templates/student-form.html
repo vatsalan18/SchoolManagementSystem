@@ -29,14 +29,14 @@
 
         <div style="display: flex; justify-content: space-between; align-items: center;">
             <label for="name" style="flex: 1;">Name:</label>
-            <input type="text" id="name" name="name" th:value="*{name}" required minlength="6" maxlength="20" 
+            <input type="text" id="name" name="name" th:value="*{name}" required minlength="6" maxlength="20" pattern="[a-zA-Z0-9 ]*"
                    style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center;">
             <label for="rollNo" style="flex: 1;">Roll No:</label>
-            <input type="number" id="rollNo" name="rollNo" th:value="*{rollNo}" required minlength="1" maxlength="10" 
-                   pattern="^[^\s]*$" title="roll no cannot contain spaces" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
+            <input type="number" id="rollNo" name="rollNo" th:value="*{rollNo}" required minlength="1" maxlength="10" pattern="[a-zA-Z0-9 ]*"
+                  title="roll no cannot contain spaces" style="flex: 2; padding: 5px; border: 1px solid #ccc; border-radius: 4px;">
         </div>
 
         <div style="display: flex; justify-content: space-between; align-items: center;">
